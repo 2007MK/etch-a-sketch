@@ -22,15 +22,13 @@ function setGrid(gridSize) {
 
 // Adding hovering effect
 function startHover() {
-    let squares;
-    squares = document.querySelectorAll(".square");
-    squares.forEach((square) => {
-        square.addEventListener("mouseenter", () => {
-            square.style.backgroundColor = "red";
+        grid.addEventListener("mouseover", (event) => {
+            if(event.target.classList.contains("square")) {
+                event.target.style.backgroundColor = "red";
+            }
         });
-    });
-}
-    
+    };
+  
 
 // making the reset button functional
 
