@@ -1,0 +1,45 @@
+* {
+  padding: 0px;
+  margin: 0px;
+  box-sizing: border-box;
+}
+
+.header {
+  text-align: center;
+  height: 3rem;
+}
+
+.main {
+  display: flex;
+  width: 100%;
+  height: calc(100vh - 3rem);
+  border: 5px solid black;
+  justify-content: center;
+  align-items: center;
+}
+
+.container {
+  display: flex;
+  height: 500px;
+  width: auto;
+  height: max-content;
+}
+
+.controls {
+  width: 200px;
+  border: 1px solid red;
+}
+
+.grid {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  border: 1px solid blue;
+  width: 500px;
+  height: 500px;
+}
+
+.pixel {
+  transition: background-color 0.2s;
+  background-color: red;
+}
