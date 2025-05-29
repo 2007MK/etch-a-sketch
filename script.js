@@ -2,11 +2,18 @@ let grid = document.querySelector(".grid");
 let gridSize = 16;
 let resetBtn = document.querySelector(".reset");
 let gridSizeBtn = document.querySelector(".gridSizeBtn");
+let randomBtn = document.querySelector(".randomBtn");
+let isRandomMode = false;
 
+resetBtn.addEventListener("click", () => {
+    let squares = document.querySelectorAll(".square")
+    squares.forEach((square) => {
+        square.style.backgroundColor = "#f4f4f4";
+    });
+});
 // Generating the gridsize
 setGrid(gridSize);
 startHover();
-startReset();
 function setGrid(gridSize) {
     grid.innerHTML = "";
     let fragment = document.createDocumentFragment();
@@ -20,13 +27,17 @@ function setGrid(gridSize) {
         fragment.appendChild(square);
     }
     grid.appendChild(fragment);
-}
+};
 
 // Adding hovering effect
 function startHover() {
         grid.addEventListener("mouseover", (event) => {
             if(event.target.classList.contains("square")) {
-                event.target.style.backgroundColor = "red";
+                if(isRandomMode) {
+                    event.target.style.backgroundColor = randomColor(); 
+                } else {
+                    event.target.style.backgroundColor = "red";
+                }
             }
         });
     };
@@ -47,16 +58,17 @@ gridSizeBtn.addEventListener("click", () => {
     grid.innerHTML = "";
     setGrid(size);
     startHover();
-    startReset();
-})
+});
 
-function startReset() {
-    let squares;
-    squares = document.querySelectorAll(".square")
-    resetBtn.addEventListener("click", () => {
-        squares.forEach((square) => {
-            square.style.backgroundColor = "#f4f4f4";
-        });
-    });
+
+function randomColor () {
+    let r = Math.floor(Math.random() * 256);
+    let g = Math.floor(Math.random() * 256);
+    let b = Math.floor(Math.random() * 256);
+    return `rgb(${r}, ${g}, ${b})`;
 }
-    
+
+randomBtn.addEventListener("click", () => {
+    isRandomMode = !isRandomMode;
+    startHover();
+});
