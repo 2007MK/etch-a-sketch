@@ -9,6 +9,7 @@ startHover();
 startReset();
 function setGrid(gridSize) {
     grid.innerHTML = "";
+    let fragment = document.createDocumentFragment();
     for(let i = 1; i <= (gridSize*gridSize); i++) {
         let square = document.createElement("div");
         square.setAttribute("class", "square");
@@ -16,8 +17,9 @@ function setGrid(gridSize) {
         square.style.width = (grid.clientWidth/gridSize) + "px";
         square.style.backgroundColor = "#f4f4f4";
         square.style.border = "1px solid black";
-        grid.appendChild(square);
+        fragment.appendChild(square);
     }
+    grid.appendChild(fragment);
 }
 
 // Adding hovering effect
