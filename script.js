@@ -43,13 +43,13 @@ function startHover() {
     // Draws when only one square is clicked
     grid.addEventListener("mousedown", (event) => {
         if (event.target.classList.contains("square")) {
-            event.target.style.backgroundColor = isRandomMode ? randomColor() : "#A3CEF1";
+            event.target.style.backgroundColor = isRandomMode ? randomColor() : "#CBE896";
         }
     });
     // keeps on drawing until the left button is clicked
     grid.addEventListener("mouseover", (event) => {
         if (isDrawing && event.target.classList.contains("square")) {
-            event.target.style.backgroundColor = isRandomMode ? randomColor() : "#A3CEF1";
+            event.target.style.backgroundColor = isRandomMode ? randomColor() : "#CBE896";
         }
     });
 }
